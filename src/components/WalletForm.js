@@ -1,11 +1,111 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class WalletForm extends Component {
+  state = {
+    value: '',
+    description: '',
+    payment: 'cash',
+    tag: 'food',
+  };
+
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({ [name]: value });
+  };
+
   render() {
+    const { value, description, payment, tag } = this.state;
+    const { currencies } = this.props;
+
     return (
-      <div>WalletForm</div>
+      <form>
+        <label htmlFor="value-input">
+          Valor:
+          {' '}
+          <input
+            type="number"
+            data-testid="value-input"
+            id="value-input"
+            name="value"
+            value={ value }
+            onChange={ this.handleChange }
+          />
+        </label>
+
+        <label htmlFor="description-input">
+          Descrição:
+          {' '}
+          <input
+            type="text"
+            data-testid="description-input"
+            id="description-input"
+            name="description"
+            value={ description }
+            onChange={ this.handleChange }
+          />
+        </label>
+
+        <label htmlFor="currency-input">
+          Moeda:
+          {' '}
+          <select
+            name="currency"
+            // value={ currency }
+            data-testid="currency-input"
+            id="currency-input"
+            // onChange={ this.handleChange }
+          >
+            { currencies.map((e) => (<option key="" value="cash">{e}</option>))}
+          </select>
+        </label>
+
+        <label htmlFor="method-input">
+          Método de pagamento:
+          {' '}
+          <select
+            name="payment"
+            data-testid="method-input"
+            id="method-input"
+            value={ payment }
+            onChange={ this.handleChange }
+          >
+            <option value="cash">Dinheiro</option>
+            <option value="credit">Cartão de crédito</option>
+            <option value="debit">Cartão de débito</option>
+          </select>
+        </label>
+
+        <label htmlFor="tag-input">
+          Tipo de gasto:
+          {' '}
+          <select
+            name="tag"
+            data-testid="tag-input"
+            id="tag-input"
+            value={ tag }
+            onChange={ this.handleChange }
+          >
+            <option value="food">Alimentação</option>
+            <option value="fun">Lazer</option>
+            <option value="work">Trabalho</option>
+            <option value="transport">Transporte</option>
+            <option value="health">Saúde</option>
+          </select>
+        </label>
+      </form>
     );
   }
 }
 
-export default WalletForm;
+WalletForm.propTypes = {
+  currencies: PropTypes.shape({
+    map: PropTypes.func,
+  }),
+}.isRequired;
+
+const mapStateToProps = (state) => ({
+  currencies: state.wallet.currencies,
+});
+
+export default connect(mapStateToProps)(WalletForm);
