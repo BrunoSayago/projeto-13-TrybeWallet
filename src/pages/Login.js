@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { fetchCurrency, newUser } from '../redux/actions';
+import { newUser } from '../redux/actions';
 
 class Login extends React.Component {
   state = {
@@ -27,9 +27,8 @@ class Login extends React.Component {
 
   handleClick = () => {
     const { email } = this.state;
-    const { emailDispatch, fetchDispatch } = this.props;
+    const { emailDispatch } = this.props;
     emailDispatch(email);
-    fetchDispatch();
     this.setState({ redirected: true });
   };
 
@@ -88,7 +87,6 @@ Login.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   emailDispatch: (state) => dispatch(newUser(state)),
-  fetchDispatch: (state) => dispatch(fetchCurrency(state)),
 });
 
 export default connect(null, mapDispatchToProps)(Login);
