@@ -7,8 +7,8 @@ class WalletForm extends Component {
   state = {
     value: '',
     description: '',
-    method: 'cash',
-    tag: 'food',
+    method: 'Dinheiro',
+    tag: 'Alimentação',
     currency: 'USD',
     id: 0,
   };
@@ -142,7 +142,6 @@ WalletForm.propTypes = {
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
-  quotation: state.wallet.quotation,
 });
 
 const mapDispatchToProps = (dispatch) => ({
