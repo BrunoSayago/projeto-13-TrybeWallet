@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { atualizaDespesas } from '../redux/actions';
 
 class Table extends Component {
+  botaoExcluir = (event) => {
+    const { expenses, atualizaDispatch } = this.props;
+    console.log(expenses);
+    const botao = event.target;
+    const celula = botao.parentElement;
+    const linha = celula.parentElement;
+    const obs = linha.attributes.name.value;
+    const novaLista = expenses.filter((despesa) => despesa.description !== obs);
+    atualizaDispatch(novaLista);
+  };
+
   render() {
     const { expenses } = this.props;
     return (
@@ -32,7 +44,7 @@ class Table extends Component {
                     const moeda = despesa.exchangeRates[currency].name;
                     const valorConvertido = Number(despesa.value) * cambio;
                     return (
-                      <tr key={ despesa.description }>
+                      <tr key={ despesa.description } name={ despesa.description }>
                         <td>{despesa.description}</td>
                         <td>{despesa.tag}</td>
                         <td>{despesa.method}</td>
@@ -45,8 +57,12 @@ class Table extends Component {
                           <button type="button">
                             1
                           </button>
-                          <button type="button">
-                            2
+                          <button
+                            type="button"
+                            data-testid="delete-btn"
+                            onClick={ this.botaoExcluir }
+                          >
+                            Excluir
                           </button>
                         </td>
                       </tr>
@@ -72,4 +88,8 @@ const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(Table);
+const mapDispatchToProps = (dispatch) => ({
+  atualizaDispatch: (state) => dispatch(atualizaDespesas(state)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);

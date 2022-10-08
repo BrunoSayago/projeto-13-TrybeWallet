@@ -6,6 +6,7 @@ const INITIAL_STATE = {
 
 const FETCH_API = 'FETCH_API';
 const DADOS = 'DADOS';
+const ATUALIZA_DESPESAS = 'ATUALIZA_DESPESAS';
 
 function wallet(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -14,6 +15,9 @@ function wallet(state = INITIAL_STATE, action) {
 
   case DADOS:
     return { ...state, expenses: [...state.expenses, action.payload] };
+
+  case ATUALIZA_DESPESAS:
+    return { ...state, expenses: action.payload };
 
   default:
     return state;

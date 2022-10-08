@@ -2,6 +2,7 @@ const NEW_EMAIL = 'NEW_EMAIL';
 const FETCH_API = 'FETCH_API';
 const ADICIONA_DESPESA = 'ADICIONA_DESPESA';
 const DADOS = 'DADOS';
+const ATUALIZA_DESPESAS = 'ATUALIZA_DESPESAS';
 
 const newUser = (payload) => ({ type: NEW_EMAIL, payload });
 
@@ -22,6 +23,8 @@ const adicionaDespesa = (payload) => ({ type: ADICIONA_DESPESA, payload });
 
 const atualizaDados = (payload) => ({ type: DADOS, payload });
 
+const atualizaDespesas = (payload) => ({ type: ATUALIZA_DESPESAS, payload });
+
 const fetchDados = (expense) => async (dispatch) => {
   try {
     const resposta = await fetch('https://economia.awesomeapi.com.br/json/all');
@@ -33,4 +36,4 @@ const fetchDados = (expense) => async (dispatch) => {
   }
 };
 
-export { newUser, fetchCurrency, adicionaDespesa, fetchDados };
+export { newUser, fetchCurrency, adicionaDespesa, fetchDados, atualizaDespesas };
