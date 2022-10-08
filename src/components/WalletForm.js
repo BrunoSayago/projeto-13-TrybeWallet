@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchCurrency, fetchDados } from '../redux/actions';
+import {
+  fetchCurrency, fetchDados, atualizaDespesas, changeEditing } from '../redux/actions';
 
 class WalletForm extends Component {
   state = {
@@ -25,8 +26,8 @@ class WalletForm extends Component {
     this.setState({
       value: '',
       description: '',
-      method: 'cash',
-      tag: 'food',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
       currency: 'USD',
       id: id + 1,
     });
@@ -38,10 +39,19 @@ class WalletForm extends Component {
 
   render() {
     const { value, description, method, tag, currency } = this.state;
-    const { currencies } = this.props;
+    const { currencies, editing } = this.props;
+    const { isEditing, obsEditing } = editing;
+    const msgEdit = `Editando ${obsEditing}`;
 
     return (
       <form>
+        {
+          isEditing && (
+            <h3>
+              {msgEdit}
+            </h3>
+          )
+        }
         <label htmlFor="value-input">
           Valor:
           {' '}
@@ -123,12 +133,16 @@ class WalletForm extends Component {
           </select>
         </label>
 
-        <button
-          type="button"
-          onClick={ this.handleClick }
-        >
-          Adicionar despesa
-        </button>
+        {
+          !isEditing && (
+            <button
+              type="button"
+              onClick={ this.handleClick }
+            >
+              Adicionar despesa
+            </button>
+          )
+        }
       </form>
     );
   }
@@ -142,11 +156,15 @@ WalletForm.propTypes = {
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
+  expenses: state.wallet.expenses,
+  editing: state.wallet.editing,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   currenciesDispatch: () => dispatch(fetchCurrency()),
   dataDispatch: (state) => dispatch(fetchDados(state)),
+  attExpenses: (state) => dispatch(atualizaDespesas(state)),
+  trocaEditando: (state) => dispatch(changeEditing(state)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WalletForm);

@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { atualizaDespesas } from '../redux/actions';
+import { atualizaDespesas, changeEditing } from '../redux/actions';
 
 class Table extends Component {
   botaoExcluir = (event) => {
     const { expenses, atualizaDispatch } = this.props;
-    console.log(expenses);
+    // console.log(expenses);
     const botao = event.target;
     const celula = botao.parentElement;
     const linha = celula.parentElement;
     const obs = linha.attributes.name.value;
     const novaLista = expenses.filter((despesa) => despesa.description !== obs);
     atualizaDispatch(novaLista);
+  };
+
+  botaoEditar = (event) => {
+    const { editing, trocaEditando } = this.props;
+    const obsAtual = event.target.parentElement.parentElement.attributes.name.value;
+    const situacao = editing.isEditing;
+    const obsSituacao = editing.obsEditing;
+    if (situacao === false || obsSituacao !== obsAtual) {
+      trocaEditando({ isEditing: true, obsEditing: obsAtual });
+    } else if (situacao === true && obsSituacao === obsAtual) {
+      console.log(this.state);
+      trocaEditando({ isEditing: false, obsEditing: '' });
+    }
   };
 
   render() {
@@ -54,8 +67,12 @@ class Table extends Component {
                         <td>{valorConvertido.toFixed(2)}</td>
                         <td>Real</td>
                         <td>
-                          <button type="button">
-                            1
+                          <button
+                            type="button"
+                            data-testid="edit-btn"
+                            onClick={ this.botaoEditar }
+                          >
+                            Editar despesa
                           </button>
                           <button
                             type="button"
@@ -86,10 +103,12 @@ Table.propTypes = {
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
+  editing: state.wallet.editing,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   atualizaDispatch: (state) => dispatch(atualizaDespesas(state)),
+  trocaEditando: (state) => dispatch(changeEditing(state)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

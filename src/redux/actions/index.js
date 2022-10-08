@@ -3,8 +3,11 @@ const FETCH_API = 'FETCH_API';
 const ADICIONA_DESPESA = 'ADICIONA_DESPESA';
 const DADOS = 'DADOS';
 const ATUALIZA_DESPESAS = 'ATUALIZA_DESPESAS';
+const TROCA_EDITANDO = 'TROCA_EDITANDO';
 
 const newUser = (payload) => ({ type: NEW_EMAIL, payload });
+
+const changeEditing = (payload) => ({ type: TROCA_EDITANDO, payload });
 
 const fetchAPI = (payload) => ({ type: FETCH_API, payload });
 
@@ -36,4 +39,11 @@ const fetchDados = (expense) => async (dispatch) => {
   }
 };
 
-export { newUser, fetchCurrency, adicionaDespesa, fetchDados, atualizaDespesas };
+export {
+  newUser,
+  fetchCurrency,
+  adicionaDespesa,
+  fetchDados,
+  atualizaDespesas,
+  changeEditing,
+};
