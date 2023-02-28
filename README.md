@@ -33,10 +33,10 @@ Página Inicial de login, e clicando "enter", que redireciona para a carteira:
 <br/>
 Na página de carteira podemos ver os itens:
 
- - 1) A moeda padrão, para a qual valores serão convertidos.
- - 2) O valor gasto total (todos gastos somados), convertido para a moeda padrão.
- - 3) O formulário de preenchimento dos gastos, com as áreas de Valor, descrição do gasto, moeda em que foi feito, método de pagamento, tipo de gasto, e o botão para adicioná-lo.
- - 4) A tabela que contêm todos gastos adicionados.
+ - 1 A moeda padrão, para a qual valores serão convertidos.
+ - 2 O valor gasto total (todos gastos somados), convertido para a moeda padrão.
+ - 3 O formulário de preenchimento dos gastos, com as áreas de Valor, descrição do gasto, moeda em que foi feito, método de pagamento, tipo de gasto, e o botão para adicioná-lo.
+ - 4 A tabela que contêm todos gastos adicionados.
 
 ![Screenshot carteira vazia](screenshot2.png)
 
