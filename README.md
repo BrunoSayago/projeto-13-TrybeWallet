@@ -47,23 +47,15 @@ O gif abaixo mostra um gasto sendo adicionado:
 ![Screenshot adicionando gasto](screenshot3.gif)
 
 <br/>
-A captura de tela abaixo mostra uma carteira populada com alguns gastos:
+A captura de tela abaixo mostra uma carteira populada com alguns gastos.
+Note que há dois botões em cada gasto, Editar Despesa e Excluir. O botão de editar não foi implementado completamente, mas o botão de excluir deleta corretamente a despesa e atualiza o banco:
 
 ![Screenshot carteira cheia](screenshot4.png)
 
-<br/>
-Na página de carrinho, é possível alterar as quantidades de cada produto, removê-los, ou clicar no link que redireciona para a finalização da compra:
-
-![Screenshot carrinho](screenshot5.png)
-
-<br/>
-Na página de checkout (finalização), é possível ver um resumo dos produtos que estão sendo comprados, e digitar um formulário para pagamento (inacabado), e, por fim, terminar a compra:
-
-![Screenshot checkout](screenshot6.png)
 
 ## Instruções para visualização
 Comando para clonar o projeto:
- - `git clone git@github.com:BrunoSayago/projeto-11-FrontEndOnlineStore.git`
+ - `git clone git@github.com:BrunoSayago/projeto-13-TrybeWallet.git`
  
 Se necessário, instalar as dependências:
  - `npm install`
