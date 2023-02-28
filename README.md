@@ -11,23 +11,24 @@ Trybe Wallet (Carteira da Trybe)
 ## Linguagens e Ferramentas Utilizadas
 
  - JavaScript
- - HTML
  - [Biblioteca React](https://pt-br.reactjs.org/)
  - [React Router](https://reactrouter.com/en/main)
+ - [Redux](https://redux.js.org/)
+ - [React Redux](https://react-redux.js.org/)
 
 
 ## Objetivos do Projeto
-"Neste projeto foi criada uma versão simplificada, sem persistência no banco de dados, de uma loja online, desenvolvidas em grupo suas funcionalidades de acordo com demandas definidas em um quadro Kanban, em um cenário próximo ao do mercado de trabalho." (Trecho retirado do README do projeto da Trybe).
-A aplicação consome uma [API do Mercado Livre](https://developers.mercadolibre.com/), e monta um MarketPlace online, no qual é possível navegar pelos produtos e adicioná-los ao carrinho. O intuito desse projeto foi, principalmente, desenvolver a prática de desenvolvimento em grupo, utilizando a mentalidade de metodologias ágeis (como o Kanban), e aplicando os conhecimentos de React adquiridos. 
+A aplicação desenvolvida neste projeto foi uma carteira de controle de gastos, com conversor de moedas. A pessoa usuária é capaz de: adicionar, remover e editar um gasto; visualizar uma tabelas com seus gastos; e visualizar o total de gastos convertidos para uma moeda de escolha. 
+O intuito desse projeto foi colocar em prática as habilidades desenvolvidas com o Redux (no caso, o Redux em conjunto com o React) dentre elas: criar um store; criar reducers; criar actions; criar dispatchers; conectar Redux aos componentes React; e criar actions assíncronas na sua aplicação React que faz uso de Redux.
 
 <br/>
-Abaixo estão capturas de tela do projeto (vale lembrar que o objetivo principal do projeto era desenvolver a aplicação com foco na arquitetura do site utilizando React Router, e, por isso, não foi desenvolvido o CSS, portanto a aplicação está sem estilização".
+Abaixo estão capturas de tela do projeto (vale lembrar que o objetivo principal do projeto era desenvolver a aplicação com foco na arquitetura do site utilizando React e Redux, e, por isso, não foi desenvolvido o CSS, portanto a aplicação está sem estilização".
 <br/>
 
 <br/>
-Página Inicial, com uma aba de categorias, um local para buscas e um link para o carrinho:
+Página Inicial de login, e clicando "enter", que redireciona para a carteira:
 
-![Screenshot Inicial](screenshot1.png)
+![Screenshot Inicial](screenshot1.gif)
 
 <br/>
 Na página inicial, ao clicar em uma categoria, os produtos disponíveis são dispostos abaixo (no caso, alimentos e bebidas):
