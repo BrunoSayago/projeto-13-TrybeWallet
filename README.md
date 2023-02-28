@@ -31,21 +31,25 @@ Página Inicial de login, e clicando "enter", que redireciona para a carteira:
 ![Screenshot Inicial](screenshot1.gif)
 
 <br/>
-Na página inicial, ao clicar em uma categoria, os produtos disponíveis são dispostos abaixo (no caso, alimentos e bebidas):
+Na página de carteira podemos ver os itens:
 
-![Screenshot Categoria](screenshot2.gif)
+ - 1. A moeda padrão, para a qual valores serão convertidos.
+ - 2. O valor gasto total (todos gastos somados), convertido para a moeda padrão.
+ - 3. O formulário de preenchimento dos gastos, com as áreas de Valor, descrição do gasto, moeda em que foi feito, método de pagamento, tipo de gasto, e o botão para adicioná-lo.
+ - 4. A tabela que contêm todos gastos adicionados.
+
+![Screenshot carteira vazia](screenshot2.png)
 
 
 <br/>
-Na página inicial, ao buscar algum termo, os produtos encontrados são dispostos abaixo (no caso, a busca foi "brinquedo"):
+O gif abaixo mostra um gasto sendo adicionado:
 
-![Screenshot Busca](screenshot3.gif)
+![Screenshot adicionando gasto](screenshot3.gif)
 
 <br/>
-Ao clicar em um item, é direcionado para a página de detalhes respectiva do produto.
-Na página do produto é possível adicioná-lo ao carrinho, fazer avaliações, e também há um link para a página de carrinho:
+A captura de tela abaixo mostra uma carteira populada com alguns gastos:
 
-![Screenshot detalhes](screenshot4.gif)
+![Screenshot carteira cheia](screenshot4.png)
 
 <br/>
 Na página de carrinho, é possível alterar as quantidades de cada produto, removê-los, ou clicar no link que redireciona para a finalização da compra:
