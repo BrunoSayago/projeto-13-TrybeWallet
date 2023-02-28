@@ -22,7 +22,7 @@ A aplicação desenvolvida neste projeto foi uma carteira de controle de gastos,
 O intuito desse projeto foi colocar em prática as habilidades desenvolvidas com o Redux (no caso, o Redux em conjunto com o React) dentre elas: criar um store; criar reducers; criar actions; criar dispatchers; conectar Redux aos componentes React; e criar actions assíncronas na sua aplicação React que faz uso de Redux.
 
 <br/>
-Abaixo estão capturas de tela do projeto (vale lembrar que o objetivo principal do projeto era desenvolver a aplicação com foco na arquitetura do site utilizando React e Redux, e, por isso, não foi desenvolvido o CSS, portanto a aplicação está sem estilização".
+Abaixo estão capturas de tela do projeto (vale lembrar que o objetivo principal do projeto era desenvolver a aplicação com foco na arquitetura do site utilizando React e Redux, e, por isso, não foi desenvolvido o CSS, portanto a aplicação está sem estilização).
 <br/>
 
 <br/>
